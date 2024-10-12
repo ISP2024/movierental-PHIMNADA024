@@ -43,3 +43,9 @@ class CustomerTest(unittest.TestCase):
         self.c.add_rental(Rental(self.regular_movie, 2))
         self.c.add_rental(Rental(self.childrens_movie, 4))
         self.assertEqual(self.c.get_total_charge(), 14.0)
+
+    def test_total_rental_points(self):
+        self.c.add_rental(Rental(self.new_movie, 10))
+        self.c.add_rental(Rental(self.regular_movie, 5))
+        self.c.add_rental(Rental(self.childrens_movie, 12))
+        self.assertEqual(self.c.get_total_rental_points(), 12.0)

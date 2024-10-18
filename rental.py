@@ -24,8 +24,8 @@ class Rental:
 
     def get_price(self):
         """Delegate price calculation to the Movie object."""
-        return self.movie.get_price(self.days_rented)
+        return self.movie.get_price_code().get_price(self.days_rented)
 
     def rental_points(self):
         """Delegate frequent renter points calculation to the Movie object."""
-        return self.movie.get_rental_points(self.days_rented)
+        return self.movie.get_price_code().get_rental_points(self.days_rented)

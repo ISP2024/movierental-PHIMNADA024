@@ -1,4 +1,4 @@
-from price_strategy import NEW_RELEASE, REGULAR, CHILDREN
+from pricing import NEW_RELEASE, REGULAR, CHILDREN
 
 
 class Movie:
@@ -17,14 +17,6 @@ class Movie:
     def get_price_code(self):
         # get the price code
         return self.price_code
-
-    def get_price(self, days):
-        # get the movie price
-        return self.price_code.get_price(days)
-
-    def get_rental_points(self, days):
-        # get the movie rental points
-        return self.price_code.get_rental_points(days)
     
     def get_title(self):
         return self.title

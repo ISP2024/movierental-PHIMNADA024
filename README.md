@@ -31,9 +31,8 @@ Moving price_code to Rental reduces unnecessary dependency and improves clarity.
 **Answer** Single Responsibility Principle (SRP) because the Movie class should only manage movie details, not pricing.
 Moving price_code and related methods to Rental ensures each class handles its own responsibility, improving cohesion and adhering to SRP.
 
+**5.2 Describe where you implement this method and the reasons for your choice.**
 
+**Answer** I chose to implement the price_code_for_movie method in the Rental class by using these 2 design principles.
 
-
-
-
-
+**High Cohesion and Information Expert:** Rental class is used for managing the movie rentals, it knows about the movie's release year and genre. It also has the day rented. These information can be used to calculate the rental price, rental points, and also can get price code for each movie.

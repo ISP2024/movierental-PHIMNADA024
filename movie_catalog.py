@@ -1,4 +1,5 @@
 import csv
+import logging
 from typing import Optional
 from movie import Movie
 
@@ -24,11 +25,12 @@ class MovieCatalog:
                         title, year, genres = row[1], int(row[2]), row[3].split('|')
                         self._movies.append(Movie(title=title, year=year, genre=genres))
                     except (IndexError, ValueError):
+                        logging.error(f'Unrecognized format "{",".join(row)}"')
                         continue
         except FileNotFoundError:
-            print(f"Error: The file '{filename}' was not found.")
+            logging.error(f"The file '{filename}' was not found.")
         except Exception as e:
-            print(f"An error occurred: {e}")
+            logging.error(f"An unexpected error occurred: {e}")
 
     def get_movie(self, title: str, year: Optional[int] = None) -> Optional[Movie]:
         """Returns a movie with the matching title and optional year."""
